@@ -27,9 +27,10 @@ result = net_connect.send_command("show run | in hostname")
 result = result.split()
 hostname = result[1]
 
-backupFile = open("Output-Configs/" + hostname + ".txt", "w+")
+fileName = hostname + "_" + dt_string
+
+backupFile = open("Output-Configs/" + fileName + ".txt", "w+")
 backupFile.write(output)
 
-fileName = hostname + "_" + dt_string
 
 print("Outputted to " + fileName + ".txt!")
