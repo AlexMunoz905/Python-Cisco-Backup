@@ -29,7 +29,7 @@ This code was last tested October 31st, 2020. The dependencies you need to run i
 
 ## Getting help
 
-If you are having trouble or need help, create an issue [here](https://github.com/alexmunoz905/New-Cisco-Config)
+If you are having trouble or need help, create an issue [here](https://github.com/alexmunoz905/Python-Cisco-Backup/issues)
 
 ## Credits and references
 
