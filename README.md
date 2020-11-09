@@ -1,11 +1,13 @@
 # Python Cisco Backup
 
-Backup your saved Cisco configuration from your device to a folder with the hostname, date, and time. You'll be given four prompts, one for IP, username, password, and enable secret.
-
+Backup your saved Cisco configuration from your device to a folder with the hostname, date, and time. You have the option of having it all imported from a CSV file, or manually giving it the IP, Username, Password, and Enable Secret of each host.
 This is running on Python3 with Netmiko.
-Version 1.0
+Version 2.0
 
-![Screenshot of it running](https://i.imgur.com/uf7SkKh.png)
+Manual Option:
+![Screenshot of manual option](https://i.imgur.com/7SyRGe6.png)
+CSV Option:
+![Screenshot of CSV option](https://i.imgur.com/NOuNLoB.png)
 
 
 ## Use case of this program
@@ -20,12 +22,13 @@ The use case is that you are needing a backup of the saved configuration on your
 
 ## Usage
 
-To run this, you need to run `python3 run.py` in your terminal or command prompt. You'll get 4 prompts asking for the IP of the device you want the saved configuration from, the username, password, and enable secret.
+To run this, you need to run `python3 run.py` in your terminal or command prompt. You'll get a prompt asking if you want to load the login information from a CSV file
+or manually fill it in.
 It will copy the saved configuration into a folder named `Output-Configs` in the same directory of the python file. The configuration file name will be the Cisco device hostname, date, and time.
 
 ## How to test the software
 
-This code was last tested October 31st, 2020. The dependencies you need to run it are Python3, PIP, and Netmiko.
+This code was last tested November 9th, 2020. The dependencies you need to run it are Python3, PIP, and Netmiko.
 
 ## Getting help
 
