@@ -8,6 +8,7 @@ Version 2.0
 
 
 Manual Option:
+
 ![Screenshot of manual option](https://i.imgur.com/7SyRGe6.png)
 
 
