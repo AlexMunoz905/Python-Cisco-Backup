@@ -1,11 +1,16 @@
 # Python Cisco Backup
 
 Backup your saved Cisco configuration from your device to a folder with the hostname, date, and time. You have the option of having it all imported from a CSV file, or manually giving it the IP, Username, Password, and Enable Secret of each host.
+
 This is running on Python3 with Netmiko.
 Version 2.0
 
+
+
 Manual Option:
 ![Screenshot of manual option](https://i.imgur.com/7SyRGe6.png)
+
+
 CSV Option:
 ![Screenshot of CSV option](https://i.imgur.com/NOuNLoB.png)
 
