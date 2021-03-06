@@ -29,9 +29,9 @@ def get_saved_config(host, username, password, enable_secret):
     # Gets the running configuration.
     output = net_connect.send_command("show running-config")
     # Gets and splits the hostname for the output file name.
-    hostname = net_connect.send_command("show run | in hostname")
+    hostname = net_connect.send_command("show ver | i uptime")
     hostname = hostname.split()
-    hostname = hostname[1]
+    hostname = hostname[0]
     # Creates the file name, which is the hostname, and the date and time.
     fileName = hostname + "_" + dt_string
     # Creates the text file in the Output-Configs folder with the special name, and writes to it.
