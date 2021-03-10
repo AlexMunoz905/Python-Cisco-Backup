@@ -34,7 +34,7 @@ The use case is that you are needing a backup of the saved configuration on your
 To run this, you need to run `python3 run.py` in your terminal or command prompt. You'll get a prompt asking if you want to load the login information from a CSV file
 or manually fill it in. If you choose the CSV option, you will need said CSV file in the same directory as the Python script.
 It will copy the saved configuration into a folder named `Output-Configs` in the same directory of the python file. The configuration file name will be the Cisco device hostname, date, and time.
-If you are on Linux or MacOS, you need to use `sudo python3 run.py` to run this due to the ping requiring permissions.
+If you are on Linux or MacOS, you need to use `sudo python3 run.py` to run this due to the ping requiring permissions. Windows required no permissions on my testing.
 
 ## How to test the software
 
