@@ -57,7 +57,7 @@ def manual_option():
 
 def csv_option():
     csv_name = input("\nWhat is the name of your CSV file?: ")
-    with open('backups.csv', 'r') as read_obj:
+    with open(csv_name, 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         #print(list_of_rows)
