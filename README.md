@@ -45,7 +45,7 @@ This code was last tested March 9th, 2021. The dependencies you need to run it a
 If you are having trouble or need help, create an issue [here](https://github.com/alexmunoz905/Python-Cisco-Backup/issues)
 
 ## Contributors
-@ste-giraldo for adding a memory and cpu saving feature to grabbing the hostname, and suggesting the ping feature.
+[ste-giraldo](https://github.com/ste-giraldo) for adding a memory and cpu saving feature to grabbing the hostname, and suggesting the ping feature.
 
 ## Credits and references
 
