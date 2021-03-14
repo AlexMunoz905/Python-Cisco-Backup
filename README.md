@@ -20,7 +20,7 @@ CSV Option:
 
 ## Use case of this program
 
-The use case is that you are needing a backup of the saved configuration on your Cisco device.
+The use case is that you are needing a backup of the saved configuration on your routers or switches.
 
 ## Installation
 
