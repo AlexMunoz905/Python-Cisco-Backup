@@ -34,14 +34,14 @@ The use case is that you are needing a backup of the saved configuration on your
 To run this, you need to run `python3 ni_run_cisco.py` or `python3 ni_run_huawei.py` in your terminal or command prompt. Host list will be taken from files `cisco_backup_hosts.csv` or `huawei_backup_hosts.csv`. So, please populate the right file depending on the vendor you are using.
 It will copy the saved configuration into a folder named `backup-config` in the same directory of the python file. The configuration file name will be the Cisco device hostname, date, and time. Unreachable hosts will be listed in a separated file named `downDevices_` + date and time.
 
-## Usage of Interactive version
+## Usage of Interactive version (Cisco Only)
 
 To run this, you need to run `python3 i_run.py` in your terminal or command prompt. You'll get a prompt asking if you want to load the login information from a CSV file
 or manually fill it in. If you choose the CSV option, you will need said CSV file in the same directory as the Python script.
 It will copy the saved configuration into a folder named `backup-config` in the same directory of the python file. The configuration file name will be the Cisco device hostname, date, and time.
 If you are on Linux or MacOS, you need to use `sudo python3 i_run.py` to run this due to the ping requiring permissions.
 
-## Usage of multivendor Interactive version 
+## Usage of multivendor Interactive version
 
 Work in progress...
 
