@@ -30,7 +30,7 @@ $ pip install -r requirements.txt
 ## Usage
 
 ```python3
-python python3 run.py
+python/python3 run.py
 ```
 
 You will get a prompt asking if you want to load the login information from a CSV file or to manually fill it in. If you choose the CSV option, you will need to seed a CSV file in the same directory as the Python script. It will copy the saved configuration into a folder called `Output-Configs` in the same directory of the python file. The configuration file name will be the Cisco device hostname, date, and time. If you are using Linux or macOS, you will need to use `sudo python3 run.py` to run this due to the ping permissions. Windows requires no permissions on my testing.
