@@ -2,13 +2,13 @@
 from csv import reader
 from datetime import date, datetime
 from netmiko import ConnectHandler
-from ping3 import ping, verbose_ping 
+from ping3 import ping, verbose_ping
 import getpass
 import os
 
 # Checks if the folder exists, if not, it creates it.
-if not os.path.exists('Output-Configs'):
-    os.makedirs('Output-Configs')
+if not os.path.exists("Output-Configs"):
+    os.makedirs("Output-Configs")
 
 # Current time and formats it to the North American time of Month, Day, and Year.
 now = datetime.now()
@@ -17,11 +17,11 @@ dt_string = now.strftime("%m-%d-%Y_%H-%M")
 # Gives us the information we need to connect.
 def get_saved_config(host, username, password, enable_secret):
     cisco_ios = {
-        'device_type': 'cisco_ios',
-        'host': host,
-        'username': username,
-        'password': password,
-        'secret': enable_secret,
+        "device_type": "cisco_ios",
+        "host": host,
+        "username": username,
+        "password": password,
+        "secret": enable_secret,
     }
     # Creates the connection to the device.
     net_connect = ConnectHandler(**cisco_ios)
@@ -29,7 +29,7 @@ def get_saved_config(host, username, password, enable_secret):
     # Gets the running configuration.
     output = net_connect.send_command("show running-config")
     # Gets and splits the hostname for the output file name.
-    hostname = net_connect.send_command("show ver | i uptime")
+    hostname = net_connect.send_command("show version | include uptime")
     hostname = hostname.split()
     hostname = hostname[0]
     # Creates the file name, which is the hostname, and the date and time.
@@ -39,13 +39,14 @@ def get_saved_config(host, username, password, enable_secret):
     backupFile.write(output)
     print("Outputted to " + fileName + ".txt!")
 
+
 # Asks for the IP, Username, Password, and Enable Secret, and passes it along to the get_saved_config function.
 def manual_option():
     host = input("\nIP: ")
     username = input("Username: ")
     password = getpass.getpass("Password: ")
     enable_secret = getpass.getpass("Enable Secret: ")
-    #get_saved_config(host, username, password, enable_secret)
+    # get_saved_config(host, username, password, enable_secret)
     ip = host
     ip_ping = ping(ip)
     if ip_ping == None:
@@ -55,17 +56,18 @@ def manual_option():
     else:
         get_saved_config(ip, username, password, enable_secret)
 
+
 def csv_option():
     csv_name = input("\nWhat is the name of your CSV file?: ")
-    with open(csv_name, 'r') as read_obj:
+    with open(csv_name, "r") as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
-        #print(list_of_rows)
+        # print(list_of_rows)
         rows = len(list_of_rows)
-        #print(rows)
+        # print(rows)
         while rows >= 2:
             rows = rows - 1
-            #print(list_of_rows[rows][0])
+            # print(list_of_rows[rows][0])
             ip = list_of_rows[rows][0]
             ip_ping = ping(ip)
             if ip_ping == None:
@@ -74,7 +76,14 @@ def csv_option():
                 downDeviceOutput.write(str(ip) + "\n")
                 # print(str(ip) + " IS DOWN!")
             else:
-                get_saved_config(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2], list_of_rows[rows][3])
+                get_saved_config(
+                    list_of_rows[rows][0],
+                    list_of_rows[rows][1],
+                    list_of_rows[rows][2],
+                    list_of_rows[rows][3],
+                )
+
+
 # Asks the user what option they are going to use.
 print("\n1. Input information your self.")
 print("2. Input information directly from CSV file.\n")
@@ -92,4 +101,3 @@ if choice == "1":
 elif choice == "2":
     # Runs the whole CSV option.
     csv_option()
-
