@@ -74,7 +74,7 @@ def get_saved_config_v(host, username, password,):
     vyos = {
         'device_type': 'vyos',
         'host': host,
-	'port': '21234',
+	'port': '22',
         'username': username,
         'password': password,
     }
