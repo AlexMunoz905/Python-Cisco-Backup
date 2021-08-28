@@ -25,7 +25,7 @@ def get_saved_config(host, username, password, enable_secret):
         'username': username,
         'password': password,
         'secret': enable_secret,
-        'auth_timeout': '10,0',
+#       'auth_timeout': '10,0',
     }
     # Creates the connection to the device.
     net_connect = ConnectHandler(**cisco_ios)
