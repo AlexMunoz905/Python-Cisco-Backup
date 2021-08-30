@@ -59,7 +59,7 @@ def get_saved_config_j(host, username, password,):
     # Gets the running configuration.
     output = net_connect.send_command("show conf | display set")
     # Gets and splits the hostname for the output file name.
-    hostname = net_connect.send_command("show ver | grep hostname")
+    hostname = net_connect.send_command("show ver | match hostname")
     hostname = hostname.split()
     hostname = hostname[2]
     # Creates the file name, which is the hostname, and the date and time.
