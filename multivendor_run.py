@@ -79,7 +79,7 @@ def get_saved_config_v(host, username, password,):
         'password': password,
     }
     # Creates the connection to the device.
-    net_connect = ConnectHandler(** vyos)
+    net_connect = ConnectHandler(**vyos)
     net_connect.enable()
     # Gets the running configuration.
     output = net_connect.send_command("show conf comm")
