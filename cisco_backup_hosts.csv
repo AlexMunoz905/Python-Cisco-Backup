@@ -1,3 +1,2 @@
 IP,Username,Password,Enable Secret
-10.0.0.1,user,password,
-10.0.0.2,user,password,secret
+10.0.0.1,username,password,secret
