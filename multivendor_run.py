@@ -63,9 +63,11 @@ def get_saved_config_juniper(host, username, password,):
     # Gets the running configuration.
     output = net_connect.send_command("show conf | display set")
     # Gets and splits the hostname for the output file name.
-    hostname = net_connect.send_command("show ver | match hostname")
-    hostname = hostname.split()
-    hostname = hostname[2]
+    hostname = net_connect.find_prompt().replace('#','').replace('>','')
+    if not hostname:
+        hostname = net_connect.send_command("show ver | match hostname")
+        hostname = hostname.split()
+        hostname = hostname[2]
     # Creates the file name, which is the hostname, and the date and time.
     fileName = hostname + "_" + dt_string
     # Creates the text file in the backup-config folder with the special name, and writes to it.
@@ -88,7 +90,12 @@ def get_saved_config_fortinet(host, username, password,):
     output = net_connect.send_command("show")
 
     # Creates the file name, which is the hostname, and the date and time.
-    fileName = host + "_" + dt_string
+    hostname = net_connect.find_prompt().replace('#','').replace('>','')
+    if not hostname:
+        hostname = host
+        fileName = host + "_" + dt_string
+    else:
+        fileName = hostname + "_" + dt_string
     # Creates the text file in the backup-config folder with the special name, and writes to it.
     backupFile = open("backup-config/" + fileName + ".txt", "w+")
     backupFile.write(output)
@@ -108,9 +115,11 @@ def get_saved_config_vyos(host, username, password,):
     # Gets the running configuration.
     output = net_connect.send_command("show conf comm")
     # Gets and splits the hostname for the output file name.
-    hostname = net_connect.send_command("sh conf | grep host-name | awk {'print $2'}")
-    hostname = hostname.split()
-    hostname = hostname[0]
+    hostname = net_connect.find_prompt().replace('#','').replace('>','')
+    if not hostname:
+        hostname = net_connect.send_command("sh conf | grep host-name | awk {'print $2'}")
+        hostname = hostname.split()
+        hostname = hostname[0]
     # Creates the file name, which is the hostname, and the date and time.
     fileName = hostname + "_" + dt_string
     # Creates the text file in the backup-config folder with the special name, and writes to it.
@@ -132,9 +141,11 @@ def get_saved_config_huawei(host, username, password,):
     # Gets the running configuration.
     output = net_connect.send_command("dis current-configuration")
     # Gets and splits the hostname for the output file name.
-    hostname = net_connect.send_command("dis saved-configuration | inc sysname")
-    hostname = hostname.split()
-    hostname = hostname[1]
+    hostname = net_connect.find_prompt().replace('#','').replace('>','')
+    if not hostname:
+        hostname = net_connect.send_command("dis saved-configuration | inc sysname")
+        hostname = hostname.split()
+        hostname = hostname[1]
     # Creates the file name, which is the hostname, and the date and time.
     fileName = hostname + "_" + dt_string
     # Creates the text file in the backup-config folder with the special name, and writes to it.
@@ -155,9 +166,11 @@ def get_saved_config_microtik(host, username, password,):
     # Gets the running configuration.
     output = net_connect.send_command_timing("export", delay_factor=40)
     # Gets and splits the hostname for the output file name.
-    hostname = net_connect.send_command("system identity print")
-    hostname = hostname.split()
-    hostname = hostname[1]
+    hostname = net_connect.find_prompt().replace('#','').replace('>','')
+    if not hostname:
+        hostname = net_connect.send_command("system identity print")
+        hostname = hostname.split()
+        hostname = hostname[1]
     # Creates the file name, which is the hostname, and the date and time.
     fileName = "config_backup-" + hostname + "_" + dt_string
     # Creates the text file in the backup-config folder with the special name, and writes to it.
