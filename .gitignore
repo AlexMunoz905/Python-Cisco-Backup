@@ -1,2 +1,5 @@
 backup-config
 .idea/
+dev_hosts.csv
+vendor_backups/__pycache__
+__pycache__
