@@ -22,8 +22,7 @@ if not os.path.exists('backup-config'):
 now = datetime.now()
 dt_string = now.strftime("%m-%d-%Y_%H-%M")
 
-# Gets the CSV file name for Cisco devices, and grabs the information from it.
-def csv_option_cisco():
+def run_script(user_selection):
     with open(csv_name, 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
@@ -33,102 +32,23 @@ def csv_option_cisco():
             ip = list_of_rows[rows][0]
             ip_ping = ping(ip)
             if ip_ping == None:
-                fileName = "down_Cisco_Devices_" + dt_string + ".txt"
+                fileName = "down_devices_" + dt_string + ".txt"
                 downDeviceOutput = open("backup-config/" + fileName, "a")
                 downDeviceOutput.write(str(ip) + "\n")
                 print(str(ip) + " is down!")
             else:
-                cisco.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2], list_of_rows[rows][3])
-
-# Gets the CSV file name for Juniper devices, and grabs the information from it.
-def csv_option_juniper():
-    with open(csv_name, 'r') as read_obj:
-        csv_reader = reader(read_obj)
-        list_of_rows = list(csv_reader)
-        rows = len(list_of_rows)
-        while rows >= 2:
-            rows = rows - 1
-            ip = list_of_rows[rows][0]
-            ip_ping = ping(ip)
-            if ip_ping == None:
-                fileName = "down_Juniper_Devices_" + dt_string + ".txt"
-                downDeviceOutput = open("backup-config/" + fileName, "a")
-                downDeviceOutput.write(str(ip) + "\n")
-                print(str(ip) + " is down!")
-            else:
-                juniper.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
-
-# Gets the CSV file name for Fortinet devices, and grabs the information from it.
-def csv_option_fortinet():
-    with open(csv_name, 'r') as read_obj:
-        csv_reader = reader(read_obj)
-        list_of_rows = list(csv_reader)
-        rows = len(list_of_rows)
-        while rows >= 2:
-            rows = rows - 1
-            ip = list_of_rows[rows][0]
-            ip_ping = ping(ip)
-            if ip_ping == None:
-                fileName = "down_Fortinet_Devices_" + dt_string + ".txt"
-                downDeviceOutput = open("backup-config/" + fileName, "a")
-                downDeviceOutput.write(str(ip) + "\n")
-                print(str(ip) + " is down!")
-            else:
-                fortinet.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
-
-# Gets the CSV file name for VyOS devices, and grabs the information from it.
-def csv_option_vyos():
-    with open(csv_name, 'r') as read_obj:
-        csv_reader = reader(read_obj)
-        list_of_rows = list(csv_reader)
-        rows = len(list_of_rows)
-        while rows >= 2:
-            rows = rows - 1
-            ip = list_of_rows[rows][0]
-            ip_ping = ping(ip)
-            if ip_ping == None:
-                fileName = "down_VyOS_Devices_" + dt_string + ".txt"
-                downDeviceOutput = open("backup-config/" + fileName, "a")
-                downDeviceOutput.write(str(ip) + "\n")
-                print(str(ip) + " is down!")
-            else:
-                vyos.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
-
-# Gets the CSV file name for Huawei devices, and grabs the information from it.
-def csv_option_huawei():
-    with open(csv_name, 'r') as read_obj:
-        csv_reader = reader(read_obj)
-        list_of_rows = list(csv_reader)
-        rows = len(list_of_rows)
-        while rows >= 2:
-            rows = rows - 1
-            ip = list_of_rows[rows][0]
-            ip_ping = ping(ip)
-            if ip_ping == None:
-                fileName = "down_Huawei_boxes_" + dt_string + ".txt"
-                downDeviceOutput = open("backup-config/" + fileName, "a")
-                downDeviceOutput.write(str(ip) + "\n")
-                print(str(ip) + " is down!")
-            else:
-                huawei.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
-
-# Gets the CSV file name for MicroTik devices, and grabs the information from it.
-def csv_option_microtik():
-    with open(csv_name, 'r') as read_obj:
-        csv_reader = reader(read_obj)
-        list_of_rows = list(csv_reader)
-        rows = len(list_of_rows)
-        while rows >= 2:
-            rows = rows - 1
-            ip = list_of_rows[rows][0]
-            ip_ping = ping(ip)
-            if ip_ping == None:
-                fileName = "down_microtik_devices_" + dt_string + ".txt"
-                downDeviceOutput = open("backup-config/" + fileName, "a")
-                downDeviceOutput.write(str(ip) + "\n")
-                print(str(ip) + " is down!")
-            else:
-                microtik.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                if user_selection == "1":
+                    cisco.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2], list_of_rows[rows][3])
+                elif user_selection == "2":
+                    juniper.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                elif user_selection == "3":
+                    vyos.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                elif user_selection == "4":
+                    huawei.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                elif user_selection == "5":
+                    fortinet.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                elif user_selection == "6":
+                    microtik.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
 
 # Asks the user what option they are going to use.
 print("\n1. Backup Cisco IOS devices.")
@@ -137,18 +57,7 @@ print("3. Backup VyOS routers.")
 print("4. Backup Huawei boxes.")
 print("5. Backup Fortinet devices.")
 print("6. Backup MicroTik devices.\n")
-choice = input("Please pick an option: ")
 
-# This basically runs the whole file.
-if choice == "1":
-  csv_option_cisco()
-elif choice == "2":
-  csv_option_juniper()
-elif choice == "3":
-  csv_option_vyos()
-elif choice == "4":
-  csv_option_huawei()
-elif choice == "5":
-    csv_option_fortinet()
-elif choice == "6":
-    csv_option_microtik()
+user_selection = input("Please pick an option: ")
+
+run_script(user_selection)
