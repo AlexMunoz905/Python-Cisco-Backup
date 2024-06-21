@@ -5,14 +5,10 @@ from datetime import datetime
 from netmiko import ConnectHandler
 from ping3 import ping, verbose_ping
 from vendor_backups import cisco,fortinet,huawei,juniper,microtik,vyos
-import getpass
 import os
-import sys
-import time
-import cmd
 
 # Speciefied CSV file for the script to grab the hosts from.
-csv_name = "dev_hosts.csv"
+csv_name = "backup_hosts.csv"
 
 # Checks if the folder exists, if not, it creates it.
 if not os.path.exists('backup-config'):
