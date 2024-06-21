@@ -1,26 +1,21 @@
 # Python3 Multivendor Backup
 [![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/AlexMunoz905/Python-Cisco-Backup)
 
-Backup your saved Cisco configuration from your device to a folder with the hostname, date, and time. You have the option of having it all imported from a CSV file, or manually giving it the IP, Username, Password, and Enable Secret of each host.
+Backup your network configuration of a supported vendor, with easy options for automation.
+#### Supported Vendors
+* Cisco
+* Juniper
+* VyOS
+* Huawei
+* Fortinet
+* MicroTik
 
 This is running on Python3 with Netmiko, and ping3.
 Version 2.1
 
+## Example:
 
-
-Manual Option:
-
-![Screenshot of manual option](https://i.imgur.com/7SyRGe6.png)
-
-
-CSV Option:
-
-![Screenshot of CSV option](https://i.imgur.com/NOuNLoB.png)
-
-
-## Use case of this program
-
-The use case is that you are needing a backup of the saved configuration on your routers or switches.
+![Screenshot of manual option](https://i.imgur.com/xLFbP88.png)
 
 ## Installation
 
