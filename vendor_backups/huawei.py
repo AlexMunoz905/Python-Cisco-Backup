@@ -30,3 +30,6 @@ def backup(host, username, password):
     backupFile = open("backup-config/" + fileName + ".txt", "w+")
     backupFile.write(output)
     print("Outputted to " + fileName + ".txt")
+    # For the GUI
+    global gui_filename_output
+    gui_filename_output = fileName
