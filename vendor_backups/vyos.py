@@ -6,7 +6,7 @@ now = datetime.now()
 dt_string = now.strftime("%m-%d-%Y_%H-%M")
 
 # Gives us the information we need to connect to VyOS devices.
-def get_saved_config_vyos(host, username, password):
+def backup(host, username, password):
     vyos = {
         'device_type': 'vyos',
         'host': host,

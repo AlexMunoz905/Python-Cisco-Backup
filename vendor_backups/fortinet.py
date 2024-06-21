@@ -6,7 +6,7 @@ now = datetime.now()
 dt_string = now.strftime("%m-%d-%Y_%H-%M")
 
 # Gives us the information we need to connect to Fortinet devices.
-def get_saved_config_fortinet(host, username, password):
+def backup(host, username, password):
     fortinet = {
         'device_type': 'fortinet',
         'host': host,

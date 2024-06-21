@@ -6,7 +6,7 @@ now = datetime.now()
 dt_string = now.strftime("%m-%d-%Y_%H-%M")
 
 # Gives us the information we need to connect to Huawei devices.
-def get_saved_config_huawei(host, username, password):
+def backup(host, username, password):
     huawei = {
         "device_type": "huawei",
         'host': host,

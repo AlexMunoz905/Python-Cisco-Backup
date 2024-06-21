@@ -18,10 +18,6 @@ csv_name = "dev_hosts.csv"
 if not os.path.exists('backup-config'):
     os.makedirs('backup-config')
 
-# Current time and formats it to the North American time of Month, Day, and Year.
-now = datetime.now()
-dt_string = now.strftime("%m-%d-%Y_%H-%M")
-
 # Gets the CSV file name for Cisco devices, and grabs the information from it.
 def csv_option_cisco():
     with open(csv_name, 'r') as read_obj:
@@ -38,7 +34,7 @@ def csv_option_cisco():
                 downDeviceOutput.write(str(ip) + "\n")
                 print(str(ip) + " is down!")
             else:
-                cisco.get_saved_config_cisco(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2], list_of_rows[rows][3])
+                cisco.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2], list_of_rows[rows][3])
 
 # Gets the CSV file name for Juniper devices, and grabs the information from it.
 def csv_option_juniper():
@@ -56,7 +52,7 @@ def csv_option_juniper():
                 downDeviceOutput.write(str(ip) + "\n")
                 print(str(ip) + " is down!")
             else:
-                juniper.get_saved_config_juniper(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                juniper.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
 
 # Gets the CSV file name for Fortinet devices, and grabs the information from it.
 def csv_option_fortinet():
@@ -74,7 +70,7 @@ def csv_option_fortinet():
                 downDeviceOutput.write(str(ip) + "\n")
                 print(str(ip) + " is down!")
             else:
-                fortinet.get_saved_config_fortinet(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                fortinet.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
 
 # Gets the CSV file name for VyOS devices, and grabs the information from it.
 def csv_option_vyos():
@@ -92,7 +88,7 @@ def csv_option_vyos():
                 downDeviceOutput.write(str(ip) + "\n")
                 print(str(ip) + " is down!")
             else:
-                vyos.get_saved_config_vyos(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                vyos.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
 
 # Gets the CSV file name for Huawei devices, and grabs the information from it.
 def csv_option_huawei():
@@ -110,7 +106,7 @@ def csv_option_huawei():
                 downDeviceOutput.write(str(ip) + "\n")
                 print(str(ip) + " is down!")
             else:
-                huawei.get_saved_config_huawei(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                huawei.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
 
 # Gets the CSV file name for MicroTik devices, and grabs the information from it.
 def csv_option_microtik():
@@ -128,7 +124,7 @@ def csv_option_microtik():
                 downDeviceOutput.write(str(ip) + "\n")
                 print(str(ip) + " is down!")
             else:
-                microtik.get_saved_config_microtik(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                microtik.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
 
 # Asks the user what option they are going to use.
 print("\n1. Backup Cisco IOS devices.")

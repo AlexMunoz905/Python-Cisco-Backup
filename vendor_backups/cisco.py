@@ -6,7 +6,7 @@ now = datetime.now()
 dt_string = now.strftime("%m-%d-%Y_%H-%M")
 
 # Gives us the information we need to connect to Cisco devices.
-def get_saved_config_cisco(host, username, password, enable_secret):
+def backup(host, username, password, enable_secret):
     cisco_ios = {
         'device_type': 'cisco_ios',
         'host': host,

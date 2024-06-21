@@ -6,7 +6,7 @@ now = datetime.now()
 dt_string = now.strftime("%m-%d-%Y_%H-%M")
 
 # Gives us the information we need to connect to MicroTik devices.
-def get_saved_config_microtik(host, username, password):
+def backup(host, username, password):
     microtik = {
         'device_type': 'mikrotik_routeros',
         'host': host,
