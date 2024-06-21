@@ -18,6 +18,10 @@ csv_name = "dev_hosts.csv"
 if not os.path.exists('backup-config'):
     os.makedirs('backup-config')
 
+# Current time and formats it to the North American time of Month, Day, and Year.
+now = datetime.now()
+dt_string = now.strftime("%m-%d-%Y_%H-%M")
+
 # Gets the CSV file name for Cisco devices, and grabs the information from it.
 def csv_option_cisco():
     with open(csv_name, 'r') as read_obj:
