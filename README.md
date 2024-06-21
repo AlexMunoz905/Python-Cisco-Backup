@@ -4,7 +4,7 @@
 Backup your saved Cisco configuration from your device to a folder with the hostname, date, and time. You have the option of having it all imported from a CSV file, or manually giving it the IP, Username, Password, and Enable Secret of each host.
 
 This is running on Python3 with Netmiko, and ping3.
-Version 2.0
+Version 2.1
 
 
 
@@ -29,22 +29,11 @@ The use case is that you are needing a backup of the saved configuration on your
 3. You need to run `pip3 install ping3` or `pip install ping3` in a command prompt / terminal on your computer.
 4. You need to download this repository or copy all of the contents of the run.py file into a python file.
 
-## Usage of Non-Interactive version for scheduling with crontab
+## Usage of this program
 
-To run this, you need to run `python3 multivendor_run.py`  in your terminal or command prompt. Host list will be taken from files `cisco_backup_hosts.csv` or `backup_hosts.csv`. So, please populate the right file depending on the vendor you are using. The Cisco hosts file has the included space for the secret, if your using non Cisco, than ignore this file.
-It will copy the saved configuration into a folder named `backup-config` in the same directory of the python file. The configuration file name will be the Cisco device hostname, date, and time. Unreachable hosts will be listed in a separated file named `downDevices_` + date and time.
-
-## Usage of Interactive version (Cisco Only)
-
-To run this, you need to run `python3 multivendor_run.py` in your terminal or command prompt. You'll get a prompt asking if you want to load the login information from a CSV file
-or manually fill it in. If you choose the CSV option, you will need said CSV file in the same directory as the Python script.
-It will copy the saved configuration into a folder named `backup-config` in the same directory of the python file. The configuration file name will be the Cisco device hostname, date, and time.
-If you are on Linux or MacOS, you need to use `sudo python3 multivendor_run.py` to run this due to the ping requiring permissions.
-
-
-## How to test the software
-
-This code was last tested April 12th, 2023. The dependencies you need to run it are Python3, PIP, Netmiko, and Ping3.
+1. To run this, you need to run `python3 multivendor_run.py`  in your terminal or command prompt.
+2. Host list will be taken from `backup_hosts.csv`. Please populate the file with the host, username, password, with **optional** secret for cisco devices.
+3. It will copy the saved configuration into a folder named `backup-config` in the same directory of the python file. The configuration file name will be the Cisco device hostname, date, and time. Unreachable hosts will be listed in a separated file named `downDevices_` + date and time.
 
 ## Getting help
 
