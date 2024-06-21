@@ -1,5 +1,4 @@
-# Imports all the crucial items.
-# All pre-installed besides Netmiko.
+# All pre-installed besides Netmiko and ping3.
 from csv import reader
 from datetime import datetime
 from netmiko import ConnectHandler
@@ -18,7 +17,9 @@ if not os.path.exists('backup-config'):
 now = datetime.now()
 dt_string = now.strftime("%m-%d-%Y_%H-%M")
 
+# Main function.
 def run_script(user_selection):
+    # Imports the CSV file specified in the csv_name variable.
     with open(csv_name, 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
@@ -26,6 +27,8 @@ def run_script(user_selection):
         while rows >= 2:
             rows = rows - 1
             ip = list_of_rows[rows][0]
+            # Pings the hosts in the CSV file, successful pings move onto the else statement.
+            # Unsuccessful pings go into a down_devices file.
             ip_ping = ping(ip)
             if ip_ping == None:
                 fileName = "down_devices_" + dt_string + ".txt"
@@ -33,6 +36,7 @@ def run_script(user_selection):
                 downDeviceOutput.write(str(ip) + "\n")
                 print(str(ip) + " is down!")
             else:
+                # Based on user selection, run the script in the vendor_backups folder. The passed variables are hosts, username, password, and optional secret.
                 if user_selection == "1":
                     cisco.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2], list_of_rows[rows][3])
                 elif user_selection == "2":
@@ -53,7 +57,6 @@ print("3. Backup VyOS routers.")
 print("4. Backup Huawei boxes.")
 print("5. Backup Fortinet devices.")
 print("6. Backup MicroTik devices.\n")
-
 user_selection = input("Please pick an option: ")
-
+# Pass the users choice to the main function.
 run_script(user_selection)
