@@ -12,6 +12,8 @@ import cmd
 
 #sys.tracebacklimit = 0
 
+csv_name = "dev_hosts.csv"
+
 # Checks if the folder exists, if not, it creates it.
 if not os.path.exists('backup-config'):
     os.makedirs('backup-config')
@@ -180,7 +182,6 @@ def get_saved_config_microtik(host, username, password):
 
 # Gets the CSV file name for Cisco devices, and grabs the information from it.
 def csv_option_cisco():
-    csv_name = input("\nWhat is the name of your CSV file for Cisco devices?: ")
     with open(csv_name, 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
@@ -199,7 +200,6 @@ def csv_option_cisco():
 
 # Gets the CSV file name for Juniper devices, and grabs the information from it.
 def csv_option_juniper():
-    csv_name = input("\nWhat is the name of your CSV file for Juniper devices?: ")
     with open(csv_name, 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
@@ -218,7 +218,6 @@ def csv_option_juniper():
 
 # Gets the CSV file name for Fortinet devices, and grabs the information from it.
 def csv_option_fortinet():
-    csv_name = input("\nWhat is the name of your CSV file for Fortinet devices?: ")
     with open(csv_name, 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
@@ -237,7 +236,6 @@ def csv_option_fortinet():
 
 # Gets the CSV file name for VyOS devices, and grabs the information from it.
 def csv_option_vyos():
-    csv_name = input("\nWhat is the name of your CSV file for VyOS routers?: ")
     with open(csv_name, 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
@@ -256,7 +254,6 @@ def csv_option_vyos():
 
 # Gets the CSV file name for Huawei devices, and grabs the information from it.
 def csv_option_huawei():
-    csv_name = input("\nWhat is the name of your CSV file for Huawei boxes?: ")
     with open(csv_name, 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
@@ -275,7 +272,6 @@ def csv_option_huawei():
 
 # Gets the CSV file name for MicroTik devices, and grabs the information from it.
 def csv_option_microtik():
-    csv_name = input("\nWhat is the name of your CSV file for MicroTik boxes?: ")
     with open(csv_name, 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
