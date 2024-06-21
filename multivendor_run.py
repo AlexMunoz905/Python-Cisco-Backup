@@ -76,7 +76,7 @@ def get_saved_config_juniper(host, username, password,):
     print("Outputted to " + fileName + ".txt")
 
 # Gives us the information we need to connect to Fortinet devices.
-def get_saved_config_fortinet(host, username, password,):
+def get_saved_config_fortinet(host, username, password):
     fortinet = {
         'device_type': 'fortinet',
         'host': host,
@@ -102,7 +102,7 @@ def get_saved_config_fortinet(host, username, password,):
     print("Outputted to " + fileName + ".txt!")
 
 # Gives us the information we need to connect to VyOS devices.
-def get_saved_config_vyos(host, username, password,):
+def get_saved_config_vyos(host, username, password):
     vyos = {
         'device_type': 'vyos',
         'host': host,
@@ -128,7 +128,7 @@ def get_saved_config_vyos(host, username, password,):
     print("Outputted to " + fileName + ".txt")
 
 # Gives us the information we need to connect to Huawei devices.
-def get_saved_config_huawei(host, username, password,):
+def get_saved_config_huawei(host, username, password):
     huawei = {
         "device_type": "huawei",
         'host': host,
@@ -154,7 +154,7 @@ def get_saved_config_huawei(host, username, password,):
     print("Outputted to " + fileName + ".txt")
 
 # Gives us the information we need to connect to MicroTik devices.
-def get_saved_config_microtik(host, username, password,):
+def get_saved_config_microtik(host, username, password):
     microtik = {
         'device_type': 'mikrotik_routeros',
         'host': host,
