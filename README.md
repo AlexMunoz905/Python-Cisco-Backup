@@ -14,8 +14,10 @@ This is running on Python3 with Netmiko, and ping3.
 Version 2.1
 
 ## Example:
-
+CLI
 ![Screenshot of manual option](https://i.imgur.com/xLFbP88.png)
+GUI
+![Screenshot of manual option](https://i.imgur.com/5zjspAp.png)
 
 ## Installation
 
