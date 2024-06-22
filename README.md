@@ -25,10 +25,16 @@ Version 2.1
 4. You need to download this repository or copy all of the contents of the run.py file into a python file.
 
 ## Usage of this program
-
+#### CLI
 1. To run this, you need to run `python3 multivendor_run.py`  in your terminal or command prompt.
 2. Host list will be taken from `backup_hosts.csv`. Please populate the file with the host, username, password, with **optional** secret for cisco devices.
 3. It will copy the saved configuration into a folder named `backup-config` in the same directory of the python file. The configuration file name will be the Cisco device hostname, date, and time. Unreachable hosts will be listed in a separated file named `downDevices_` + date and time.
+
+#### GUI
+1. Download & run executable from GitHub releases tab.
+2. Select the vendor you want to copy the config of.
+3. Select the CSV file from the popup window.
+4. It'll give you a popup for each successfull configuration copied, as well as for each down host, if any.
 
 ## Getting help
 
