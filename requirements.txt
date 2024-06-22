@@ -1,2 +1,2 @@
-netmiko>=3.3.3
-ping3>=2.7.0
+netmiko>=4.3.0
+ping3>=4.0.8
