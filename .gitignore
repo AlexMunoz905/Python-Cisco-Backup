@@ -3,3 +3,6 @@ backup-config
 dev_hosts.csv
 vendor_backups/__pycache__
 __pycache__
+.vscode
+dist
+build
