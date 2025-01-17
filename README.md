@@ -3,7 +3,7 @@
 
 Backup your network configuration of a supported vendor, with easy options for automation.
 #### Supported Vendors
-* Cisco
+* Cisco IOS & ASA
 * Juniper
 * VyOS
 * Huawei
@@ -15,9 +15,11 @@ Version 2.1
 
 ## Example:
 CLI
-![Screenshot of manual option](https://i.imgur.com/xLFbP88.png)
+
+![Screenshot of manual option](https://i.imgur.com/46JnIdM.png)
 GUI
-![Screenshot of manual option](https://i.imgur.com/5zjspAp.png)
+
+![Screenshot of GUI option](https://i.imgur.com/bmbiNce.png)
 
 ## Installation
 
