@@ -1,7 +1,7 @@
 import os
 from netmiko import ConnectHandler
 from datetime import datetime
-from lib import write_backup
+from .lib import write_backup
 
 # Current time and formats it to the North American time of Month, Day, and Year.
 now = datetime.now()
