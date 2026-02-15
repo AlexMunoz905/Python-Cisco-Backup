@@ -26,9 +26,7 @@ def backup(host, username, password):
     # Creates the file name, which is the hostname, and the date and time.
     fileName = "config_backup-" + hostname + "_" + dt_string
     # Creates the text file in the backup-config folder with the special name, and writes to it.
-    backupFile = open("backup-config/" + fileName + ".txt", "w+")
-    backupFile.write(output)
-    print("Outputted to " + fileName + ".txt")
+    write_backup(fileName, output)
     # For the GUI
     global gui_filename_output
     gui_filename_output = fileName

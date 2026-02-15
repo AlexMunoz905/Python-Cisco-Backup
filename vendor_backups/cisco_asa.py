@@ -32,12 +32,7 @@ def backup(host, username, password, enable_secret):
     # Creates the file name, which is the hostname, and the date and time.
     fileName = f"{hostname}_{dt_string}"
     # Creates the text file in the backup-config folder with the special name, and writes to it.
-    backup_file = os.path.join("backup-config", fileName)
-    with open(backup_file, "w") as backupFile:
-        backupFile.write(output)
-        pass
-
-    print(f"Outputted to {len(output)} bytes to {backup_file}")
+    write_backup(fileName, output)
     # For the GUI
     global gui_filename_output
     gui_filename_output = fileName
