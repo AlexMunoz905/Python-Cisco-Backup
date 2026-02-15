@@ -1,2 +1,4 @@
 netmiko>=4.3.0
 ping3>=4.0.8
+typer>=0.9.0
+loguru>=0.7.0
