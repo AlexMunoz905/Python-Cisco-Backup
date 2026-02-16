@@ -1,9 +1,5 @@
 from netmiko import ConnectHandler
-from datetime import datetime
-
-# Current time and formats it to the North American time of Month, Day, and Year.
-now = datetime.now()
-dt_string = now.strftime("%m-%d-%Y_%H-%M")
+from .lib import write_backup
 
 # Gives us the information we need to connect to MicroTik devices.
 def backup(host, username, password):
@@ -23,12 +19,8 @@ def backup(host, username, password):
         hostname = net_connect.send_command("system identity print")
         hostname = hostname.split()
         hostname = hostname[1]
-    # Creates the file name, which is the hostname, and the date and time.
-    fileName = "config_backup-" + hostname + "_" + dt_string
     # Creates the text file in the backup-config folder with the special name, and writes to it.
-    backupFile = open("backup-config/" + fileName + ".txt", "w+")
-    backupFile.write(output)
-    print("Outputted to " + fileName + ".txt")
+    fileName = write_backup(hostname, output)
     # For the GUI
     global gui_filename_output
     gui_filename_output = fileName
