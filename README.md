@@ -46,6 +46,7 @@ If you are having trouble or need help, create an issue [here](https://github.co
 
 ## Contributors
 [ste-giraldo](https://github.com/ste-giraldo) for adding a memory and cpu saving feature to grabbing the hostname, and suggesting the ping feature.
+[joshland](https://github.com/joshland)
 
 ## Credits and references
 
