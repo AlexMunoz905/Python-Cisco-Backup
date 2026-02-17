@@ -9,6 +9,7 @@ Backup your network configuration of a supported vendor, with easy options for a
 * Huawei
 * Fortinet
 * MicroTik
+* Dell OS6
 
 This is running on Python3 with Netmiko, and ping3.
 Version 2.1
