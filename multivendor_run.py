@@ -1,10 +1,12 @@
 # All pre-installed besides Netmiko and ping3.
+import os
 from csv import reader
 from datetime import datetime
+# 3rd party
 from netmiko import ConnectHandler
 from ping3 import ping, verbose_ping
-from vendor_backups import cisco_ios,cisco_asa,fortinet,huawei,juniper,microtik,vyos
-import os
+# package libraries
+from vendor_backups import cisco_ios,cisco_asa,fortinet,huawei,juniper,microtik,vyos,dell_os6
 
 # Specified CSV file for the script to grab the hosts from.
 csv_name = "backup_hosts.csv"
@@ -51,6 +53,8 @@ def run_script(user_selection):
                     fortinet.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
                 elif user_selection == "7":
                     microtik.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                elif user_selection == "8":
+                    dell_os6.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2], list_of_rows[rows][3])
 
 # Asks the user what option they are going to use.
 print("\n1. Backup Cisco IOS devices.")
@@ -59,7 +63,8 @@ print("3. Backup Juniper devices.")
 print("4. Backup VyOS routers.")
 print("5. Backup Huawei boxes.")
 print("6. Backup Fortinet devices.")
-print("7. Backup MicroTik devices.\n")
+print("7. Backup MicroTik devices.")
+print("8. Backup Dell OS6 devices.\n")
 user_selection = input("Please pick an option: ")
 # Pass the users choice to the main function.
 run_script(user_selection)
