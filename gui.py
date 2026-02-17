@@ -1,13 +1,15 @@
+import os
 from csv import reader
 from datetime import datetime
-from netmiko import ConnectHandler
-from ping3 import ping, verbose_ping
-from vendor_backups import cisco_ios,cisco_asa,fortinet,huawei,juniper,microtik,vyos
-import os
 from tkinter import *
 from tkinter.ttk import *
 from tkinter.filedialog import *
 from tkinter import messagebox
+# 3rd Party
+from netmiko import ConnectHandler
+from ping3 import ping, verbose_ping
+# package libraries
+from vendor_backups import cisco_ios,cisco_asa,fortinet,huawei,juniper,microtik,vyos,dell_os6
 
 # Initializes Tkinter
 root = Tk()
@@ -73,6 +75,9 @@ def run_script(user_selection):
                     elif user_selection == "7":
                         microtik.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
                         backup_completion_popup(microtik.gui_filename_output)
+                    elif user_selection == "8":
+                        dell_os6.backup(list_of_rows[rows][0], list_of_rows[rows][1], list_of_rows[rows][2])
+                        backup_completion_popup(dell_os6.gui_filename_output)
 
 # Build the button and assign values
 tk_cisco_ios = Button(tk_frame, text="Cisco IOS", command=lambda : run_script("1"))
@@ -82,6 +87,7 @@ tk_vyos = Button(tk_frame, text="VyOS", command=lambda : run_script("4"))
 tk_huawei = Button(tk_frame, text="Huawei", command=lambda : run_script("5"))
 tk_fortinet = Button(tk_frame, text="Fortinet", command=lambda : run_script("6"))
 tk_microtik = Button(tk_frame, text="Microtik", command=lambda : run_script("7"))
+tk_dell_os6 = Button(tk_frame, text="Dell OS6", command=lambda : run_script("8"))
 
 # Place the button on the GUI
 tk_cisco_ios.pack(side=LEFT, padx=5, fill=BOTH, expand=True)
@@ -91,6 +97,7 @@ tk_vyos.pack(side=LEFT, padx=5, fill=BOTH, expand=True)
 tk_huawei.pack(side=LEFT, padx=5, fill=BOTH, expand=True)
 tk_fortinet.pack(side=LEFT, padx=5, fill=BOTH, expand=True)
 tk_microtik.pack(side=LEFT, padx=5, fill=BOTH, expand=True)
+tk_dell_os6.pack(side=LEFT, padx=5, fill=BOTH, expand=True)
 
 # Runs the gui
 mainloop()
